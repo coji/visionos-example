@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E31B22CE2C51D37100DDF8CF /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31B22CD2C51D37100DDF8CF /* TextView.swift */; };
+		E3301B012C51FCCF00522BDA /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3301B002C51FCCF00522BDA /* SpeechRecognition.swift */; };
 		E3713A8A2C4CDE0A005BB33D /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = E3713A892C4CDE0A005BB33D /* RealityKitContent */; };
 		E3713A8C2C4CDE0A005BB33D /* visionos_exampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713A8B2C4CDE0A005BB33D /* visionos_exampleApp.swift */; };
 		E3713A8E2C4CDE0A005BB33D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713A8D2C4CDE0A005BB33D /* ContentView.swift */; };
@@ -14,6 +16,7 @@
 		E3713A922C4CDE0C005BB33D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3713A912C4CDE0C005BB33D /* Assets.xcassets */; };
 		E3713A952C4CDE0C005BB33D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3713A942C4CDE0C005BB33D /* Preview Assets.xcassets */; };
 		E3713AA02C4CDE0C005BB33D /* visionos_exampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713A9F2C4CDE0C005BB33D /* visionos_exampleTests.swift */; };
+		E3713AAA2C4CDE68005BB33D /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713AA92C4CDE68005BB33D /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E31B22CD2C51D37100DDF8CF /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		E3301B002C51FCCF00522BDA /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
 		E3713A842C4CDE0A005BB33D /* visionos-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "visionos-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3713A882C4CDE0A005BB33D /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		E3713A8B2C4CDE0A005BB33D /* visionos_exampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visionos_exampleApp.swift; sourceTree = "<group>"; };
@@ -37,6 +42,7 @@
 		E3713A962C4CDE0C005BB33D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3713A9B2C4CDE0C005BB33D /* visionos-exampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "visionos-exampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3713A9F2C4CDE0C005BB33D /* visionos_exampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visionos_exampleTests.swift; sourceTree = "<group>"; };
+		E3713AA92C4CDE68005BB33D /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3301AFE2C51E84300522BDA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E3713A8D2C4CDE0A005BB33D /* ContentView.swift */,
+				E3713A8F2C4CDE0A005BB33D /* ImmersiveView.swift */,
+				E3713AA92C4CDE68005BB33D /* TestView.swift */,
+				E31B22CD2C51D37100DDF8CF /* TextView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E3301AFF2C51FC8000522BDA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E3301B002C51FCCF00522BDA /* SpeechRecognition.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		E3713A7B2C4CDE0A005BB33D = {
 			isa = PBXGroup;
 			children = (
@@ -80,9 +105,9 @@
 		E3713A862C4CDE0A005BB33D /* visionos-example */ = {
 			isa = PBXGroup;
 			children = (
+				E3301AFF2C51FC8000522BDA /* Models */,
+				E3301AFE2C51E84300522BDA /* Views */,
 				E3713A8B2C4CDE0A005BB33D /* visionos_exampleApp.swift */,
-				E3713A8D2C4CDE0A005BB33D /* ContentView.swift */,
-				E3713A8F2C4CDE0A005BB33D /* ImmersiveView.swift */,
 				E3713A912C4CDE0C005BB33D /* Assets.xcassets */,
 				E3713A962C4CDE0C005BB33D /* Info.plist */,
 				E3713A932C4CDE0C005BB33D /* Preview Content */,
@@ -217,9 +242,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3713AAA2C4CDE68005BB33D /* TestView.swift in Sources */,
+				E3301B012C51FCCF00522BDA /* SpeechRecognition.swift in Sources */,
 				E3713A8E2C4CDE0A005BB33D /* ContentView.swift in Sources */,
 				E3713A8C2C4CDE0A005BB33D /* visionos_exampleApp.swift in Sources */,
 				E3713A902C4CDE0A005BB33D /* ImmersiveView.swift in Sources */,
+				E31B22CE2C51D37100DDF8CF /* TextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +326,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = xros;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				XROS_DEPLOYMENT_TARGET = 1.2;
@@ -354,7 +382,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = xros;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 				XROS_DEPLOYMENT_TARGET = 1.2;
@@ -373,6 +401,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "音声を認識するためにマイクを使います";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "音声を認識してテキストにします。";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -399,6 +430,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "音声を認識するためにマイクを使います";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "音声を認識してテキストにします。";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

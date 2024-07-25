@@ -11,11 +11,7 @@ import SwiftUI
 struct visionos_exampleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
-
-        ImmersiveSpace(id: "ImmersiveSpace") {
-            ImmersiveView()
+          TestView()
         }
     }
 }
