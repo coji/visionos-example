@@ -60,14 +60,14 @@ class SpeechRecognition: ObservableObject {
   @MainActor func startTranscribing() {
     isRecording = true
     Task {
-      await transcribe()
+      transcribe()
     }
   }
 
   @MainActor func stopTranscribing() {
     isRecording = false
     Task {
-      await reset()
+      reset()
     }
   }
 
@@ -127,6 +127,7 @@ class SpeechRecognition: ObservableObject {
     if receivedFinalResult || receivedError {
       audioEngine.stop()
       audioEngine.inputNode.removeTap(onBus: 0)
+      return
     }
 
     if let result {
