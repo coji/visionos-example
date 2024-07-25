@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TestView: View {
-  @StateObject var speechRecognition = SpeechRecognition()
+  private var speechRecognition = SpeechRecognition()
   @State private var showingSheet = false
 
   var body: some View {
@@ -34,10 +34,10 @@ struct TestView: View {
               Text("Japanese").font(.title2)
               Spacer()
               Button("Copy", action: {
-                UIPasteboard.general.string = speechRecognition.translated
+                // UIPasteboard.general.string = speechRecognition.translated
               })
             }
-            TextView(text: speechRecognition.translated)
+            TextView(text: "" /*speechRecognition.translated*/)
               .padding()
           }
         }
@@ -51,13 +51,13 @@ struct TestView: View {
             if(self.speechRecognition.isRecording) {
               HStack {
                 Button("音声認識中", action: {
-                  self.speechRecognition.stopRecording()
+                  self.speechRecognition.stopTranscribing()
                 })
                 RecordingSign()
               }
             } else {
               Button("音声認識を開始", action: {
-                self.speechRecognition.startRecording()
+                self.speechRecognition.startTranscribing()
               })
             }
             Button("設定", action: {
