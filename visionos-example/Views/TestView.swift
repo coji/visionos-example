@@ -20,26 +20,32 @@ struct TestView: View {
               Spacer()
               Text("English").font(.title2)
               Spacer()
-              Button("Copy", action: {
+              Button(action: {
                 UIPasteboard.general.string = speechRecognition.transcript
-              })
+              }) {
+                Label("Copy", systemImage: "clipboard")
+              }
             }
             TextView(text: speechRecognition.transcript)
-              .padding()
+              .padding(.bottom)
           }
+          .padding(.horizontal)
 
           VStack {
             HStack {
               Spacer()
               Text("Japanese").font(.title2)
               Spacer()
-              Button("Copy", action: {
+              Button(action: {
                 // UIPasteboard.general.string = speechRecognition.translated
-              })
+              }) {
+                Label("Copy", systemImage: "clipboard")
+              }
             }
             TextView(text: "" /*speechRecognition.translated*/)
-              .padding()
+              .padding(.bottom)
           }
+          .padding(.horizontal)
         }
       }
       .frame(maxWidth: .infinity)
@@ -50,19 +56,28 @@ struct TestView: View {
           HStack {
             if(self.speechRecognition.isRecording) {
               HStack {
-                Button("音声認識中", action: {
+                Button(action: {
                   self.speechRecognition.stopTranscribing()
-                })
+                }) {
+                  Label("音声認識中", systemImage: "stop.fill")
+                    .labelStyle(.titleAndIcon)
+                }
                 RecordingSign()
               }
             } else {
-              Button("音声認識を開始", action: {
+              Button(action: {
                 self.speechRecognition.startTranscribing()
-              })
+              }) {
+                Label("音声認識を開始", systemImage: "text.bubble")
+                  .labelStyle(.titleAndIcon)
+              }
             }
-            Button("設定", action: {
+            Button(action: {
               showingSheet = true
-            })
+            }) {
+              Label("設定", systemImage: "slider.horizontal.3")
+                .labelStyle(.titleAndIcon)
+            }
           }
         }
       }
