@@ -29,6 +29,7 @@ class SpeechRecognition: ObservableObject {
   }
 
   @MainActor var isRecording: Bool = false
+  @MainActor var isOnDevice: Bool = true
   @MainActor private(set) var transcript: String = ""
 
   private var audioEngine: AVAudioEngine?
@@ -60,7 +61,7 @@ class SpeechRecognition: ObservableObject {
   @MainActor func startTranscribing() {
     isRecording = true
     Task {
-      transcribe()
+      transcribe(isOnDevice: isOnDevice)
     }
   }
 
@@ -71,7 +72,7 @@ class SpeechRecognition: ObservableObject {
     }
   }
 
-  private func transcribe() {
+  private func transcribe(isOnDevice: Bool) {
     guard let recognizer, recognizer.isAvailable else {
       transcribe(RecognizerError.recognizerIsUnavailable)
       return
@@ -81,6 +82,7 @@ class SpeechRecognition: ObservableObject {
       let (audioEngine, request) = try Self.prepareEngine()
       self.audioEngine = audioEngine
       self.request = request
+      self.request?.requiresOnDeviceRecognition = isOnDevice
       task = recognizer.recognitionTask(with: request, resultHandler: { [weak self] result, error in
         self?.recognitionHandler(audioEngine: audioEngine, result: result, error: error)
       })
@@ -127,7 +129,6 @@ class SpeechRecognition: ObservableObject {
     if receivedFinalResult || receivedError {
       audioEngine.stop()
       audioEngine.inputNode.removeTap(onBus: 0)
-      return
     }
 
     if let result {

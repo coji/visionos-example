@@ -67,10 +67,15 @@ struct TestView: View {
         }
       }
     }.sheet(isPresented: $showingSheet, content: {
-      Text("Hoge")
-      Button("Close", role: .cancel, action: {
-        showingSheet = false
-      })
+      @Bindable var speechRecognition = speechRecognition
+
+      VStack {
+        Toggle("On Device Recognition", isOn: $speechRecognition.isOnDevice)
+        Button("Close", action: {
+          showingSheet = false
+        })
+      }
+      .padding()
     })
   }
 }
