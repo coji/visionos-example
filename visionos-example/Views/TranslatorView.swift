@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TranslatorView: View {
   private var speechRecognition = SpeechRecognition()
-  @State private var showingSheet = false
+  @State private var showingSettings = false
 
   var body: some View {
     NavigationStack {
@@ -73,7 +73,7 @@ struct TranslatorView: View {
               }
             }
             Button(action: {
-              showingSheet = true
+              showingSettings = true
             }) {
               Label("設定", systemImage: "slider.horizontal.3")
                 .labelStyle(.titleAndIcon)
@@ -81,16 +81,10 @@ struct TranslatorView: View {
           }
         }
       }
-    }.sheet(isPresented: $showingSheet, content: {
-      @Bindable var speechRecognition = speechRecognition
-
-      VStack {
-        Toggle("On Device Recognition", isOn: $speechRecognition.isOnDevice)
-        Button("Close", action: {
-          showingSheet = false
-        })
-      }
-      .padding()
+    }.sheet(isPresented: $showingSettings, content: {
+      SettingsView(speechRecognition: speechRecognition, onClose: {
+        showingSettings.toggle()
+      })
     })
   }
 }

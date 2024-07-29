@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct visionos_exampleApp: App {
-    var body: some Scene {
-        WindowGroup {
-          TranslatorView()
-        }
+  @AppStorage("IsFirstLaunch") var isFirstLaunch: Bool = true
+  var body: some Scene {
+    WindowGroup {
+      if isFirstLaunch {
+        ApiKeyInputView()
+          .onAppear {
+            isFirstLaunch = false
+          }
+      } else {
+        TranslatorView()
+      }
     }
+  }
 }

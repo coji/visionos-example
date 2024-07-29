@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E3088BFD2C575518007FA11B /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3088BFC2C575518007FA11B /* ApiKey.swift */; };
+		E3088BFF2C575770007FA11B /* ApiKeyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3088BFE2C575770007FA11B /* ApiKeyInputView.swift */; };
+		E3088C012C575BEA007FA11B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3088C002C575BEA007FA11B /* SettingsView.swift */; };
 		E31B22CE2C51D37100DDF8CF /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31B22CD2C51D37100DDF8CF /* TextView.swift */; };
 		E3301B012C51FCCF00522BDA /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3301B002C51FCCF00522BDA /* SpeechRecognition.swift */; };
 		E3713A8A2C4CDE0A005BB33D /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = E3713A892C4CDE0A005BB33D /* RealityKitContent */; };
@@ -30,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E3088BFC2C575518007FA11B /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
+		E3088BFE2C575770007FA11B /* ApiKeyInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyInputView.swift; sourceTree = "<group>"; };
+		E3088C002C575BEA007FA11B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E31B22CD2C51D37100DDF8CF /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		E3301B002C51FCCF00522BDA /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
 		E3713A842C4CDE0A005BB33D /* visionos-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "visionos-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3088BFB2C57550A007FA11B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E3088BFC2C575518007FA11B /* ApiKey.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		E3301AFE2C51E84300522BDA /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +85,8 @@
 				E3713A8F2C4CDE0A005BB33D /* ImmersiveView.swift */,
 				E3713AA92C4CDE68005BB33D /* TranslatorView.swift */,
 				E31B22CD2C51D37100DDF8CF /* TextView.swift */,
+				E3088BFE2C575770007FA11B /* ApiKeyInputView.swift */,
+				E3088C002C575BEA007FA11B /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,6 +121,7 @@
 		E3713A862C4CDE0A005BB33D /* visionos-example */ = {
 			isa = PBXGroup;
 			children = (
+				E3088BFB2C57550A007FA11B /* Services */,
 				E3301AFF2C51FC8000522BDA /* Models */,
 				E3301AFE2C51E84300522BDA /* Views */,
 				E3713A8B2C4CDE0A005BB33D /* visionos_exampleApp.swift */,
@@ -248,8 +265,11 @@
 				E3713AAA2C4CDE68005BB33D /* TranslatorView.swift in Sources */,
 				E3301B012C51FCCF00522BDA /* SpeechRecognition.swift in Sources */,
 				E3713A8E2C4CDE0A005BB33D /* ContentView.swift in Sources */,
+				E3088C012C575BEA007FA11B /* SettingsView.swift in Sources */,
 				E3713A8C2C4CDE0A005BB33D /* visionos_exampleApp.swift in Sources */,
+				E3088BFD2C575518007FA11B /* ApiKey.swift in Sources */,
 				E3713A902C4CDE0A005BB33D /* ImmersiveView.swift in Sources */,
+				E3088BFF2C575770007FA11B /* ApiKeyInputView.swift in Sources */,
 				E31B22CE2C51D37100DDF8CF /* TextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,7 +349,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = xros;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				XROS_DEPLOYMENT_TARGET = 1.2;
@@ -385,7 +405,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = xros;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 				XROS_DEPLOYMENT_TARGET = 1.2;
