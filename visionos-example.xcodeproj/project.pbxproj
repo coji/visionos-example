@@ -10,6 +10,7 @@
 		E3088BFD2C575518007FA11B /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3088BFC2C575518007FA11B /* ApiKey.swift */; };
 		E3088BFF2C575770007FA11B /* ApiKeyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3088BFE2C575770007FA11B /* ApiKeyInputView.swift */; };
 		E3088C012C575BEA007FA11B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3088C002C575BEA007FA11B /* SettingsView.swift */; };
+		E3088C032C578697007FA11B /* OpenAITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3088C022C578697007FA11B /* OpenAITestView.swift */; };
 		E31B22CE2C51D37100DDF8CF /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31B22CD2C51D37100DDF8CF /* TextView.swift */; };
 		E3301B012C51FCCF00522BDA /* SpeechRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3301B002C51FCCF00522BDA /* SpeechRecognition.swift */; };
 		E3713A8A2C4CDE0A005BB33D /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = E3713A892C4CDE0A005BB33D /* RealityKitContent */; };
@@ -20,6 +21,7 @@
 		E3713A952C4CDE0C005BB33D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3713A942C4CDE0C005BB33D /* Preview Assets.xcassets */; };
 		E3713AA02C4CDE0C005BB33D /* visionos_exampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713A9F2C4CDE0C005BB33D /* visionos_exampleTests.swift */; };
 		E3713AAA2C4CDE68005BB33D /* TranslatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713AA92C4CDE68005BB33D /* TranslatorView.swift */; };
+		E3D7E5BF2C57891C008C8D59 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = E3D7E5BE2C57891C008C8D59 /* OpenAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 		E3088BFC2C575518007FA11B /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		E3088BFE2C575770007FA11B /* ApiKeyInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyInputView.swift; sourceTree = "<group>"; };
 		E3088C002C575BEA007FA11B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E3088C022C578697007FA11B /* OpenAITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAITestView.swift; sourceTree = "<group>"; };
 		E31B22CD2C51D37100DDF8CF /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		E3301B002C51FCCF00522BDA /* SpeechRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognition.swift; sourceTree = "<group>"; };
 		E3713A842C4CDE0A005BB33D /* visionos-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "visionos-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3D7E5BF2C57891C008C8D59 /* OpenAI in Frameworks */,
 				E3713A8A2C4CDE0A005BB33D /* RealityKitContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +91,7 @@
 				E31B22CD2C51D37100DDF8CF /* TextView.swift */,
 				E3088BFE2C575770007FA11B /* ApiKeyInputView.swift */,
 				E3088C002C575BEA007FA11B /* SettingsView.swift */,
+				E3088C022C578697007FA11B /* OpenAITestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 				E3713A872C4CDE0A005BB33D /* Packages */,
 				E3713A9E2C4CDE0C005BB33D /* visionos-exampleTests */,
 				E3713A852C4CDE0A005BB33D /* Products */,
+				E3D7E5BD2C57891C008C8D59 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +162,13 @@
 			path = "visionos-exampleTests";
 			sourceTree = "<group>";
 		};
+		E3D7E5BD2C57891C008C8D59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,6 +187,7 @@
 			name = "visionos-example";
 			packageProductDependencies = (
 				E3713A892C4CDE0A005BB33D /* RealityKitContent */,
+				E3D7E5BE2C57891C008C8D59 /* OpenAI */,
 			);
 			productName = "visionos-example";
 			productReference = E3713A842C4CDE0A005BB33D /* visionos-example.app */;
@@ -268,6 +282,7 @@
 				E3088C012C575BEA007FA11B /* SettingsView.swift in Sources */,
 				E3713A8C2C4CDE0A005BB33D /* visionos_exampleApp.swift in Sources */,
 				E3088BFD2C575518007FA11B /* ApiKey.swift in Sources */,
+				E3088C032C578697007FA11B /* OpenAITestView.swift in Sources */,
 				E3713A902C4CDE0A005BB33D /* ImmersiveView.swift in Sources */,
 				E3088BFF2C575770007FA11B /* ApiKeyInputView.swift in Sources */,
 				E31B22CE2C51D37100DDF8CF /* TextView.swift in Sources */,
@@ -559,6 +574,11 @@
 		E3713A892C4CDE0A005BB33D /* RealityKitContent */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitContent;
+		};
+		E3D7E5BE2C57891C008C8D59 /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3B9DE892C53BB0400186476 /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

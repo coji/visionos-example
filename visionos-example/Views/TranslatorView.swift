@@ -1,100 +1,115 @@
-//
-//  TestView.swift
-//  visionos-example
-//
-//  Created by coji on 2024/07/21.
-//
-
 import SwiftUI
 
 struct TranslatorView: View {
-  private var speechRecognition = SpeechRecognition()
-  @State private var showingSettings = false
+    @StateObject private var speechRecognition = SpeechRecognition()
+    @State private var showingSettings = false
 
-  var body: some View {
-    NavigationStack {
-      VStack(alignment: .leading) {
-        HStack {
-          VStack {
+    var body: some View {
+        NavigationStack {
             HStack {
-              Spacer()
-              Text("English").font(.title2)
-              Spacer()
-              Button(action: {
-                UIPasteboard.general.string = speechRecognition.transcript
-              }) {
-                Label("Copy", systemImage: "clipboard")
-              }
+                LanguageView(title: "English", text: speechRecognition.transcript)
+                LanguageView(title: "Japanese", text: "" /*speechRecognition.translated*/)
             }
-            TextView(text: speechRecognition.transcript)
-              .padding(.bottom)
-          }
-          .padding(.horizontal)
-
-          VStack {
-            HStack {
-              Spacer()
-              Text("Japanese").font(.title2)
-              Spacer()
-              Button(action: {
-                // UIPasteboard.general.string = speechRecognition.translated
-              }) {
-                Label("Copy", systemImage: "clipboard")
-              }
-            }
-            TextView(text: "" /*speechRecognition.translated*/)
-              .padding(.bottom)
-          }
-          .padding(.horizontal)
-        }
-      }
-      .frame(maxWidth: .infinity)
-      .padding()
-      .navigationTitle("Vision Translator")
-      .toolbar {
-        ToolbarItem(placement: .topBarTrailing) {
-          HStack {
-            if(self.speechRecognition.isRecording) {
-              HStack {
-                Button(action: {
-                  self.speechRecognition.stopTranscribing()
-                }) {
-                  Label("音声認識中", systemImage: "stop.fill")
-                    .labelStyle(.titleAndIcon)
+            .frame(maxWidth: .infinity)
+            .padding()
+            .navigationTitle("Vision Translator")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    HStack {
+                        RecordingButton(speechRecognition: speechRecognition)
+                        SettingsButton(showingSettings: $showingSettings)
+                    }
                 }
-                RecordingSign()
-              }
-            } else {
-              Button(action: {
-                self.speechRecognition.startTranscribing()
-              }) {
-                Label("音声認識を開始", systemImage: "text.bubble")
-                  .labelStyle(.titleAndIcon)
-              }
             }
-            Button(action: {
-              showingSettings = true
-            }) {
-              Label("設定", systemImage: "slider.horizontal.3")
-                .labelStyle(.titleAndIcon)
-            }
-          }
         }
-      }
-    }.sheet(isPresented: $showingSettings, content: {
-      SettingsView(speechRecognition: speechRecognition, onClose: {
-        showingSettings.toggle()
-      })
-    })
-  }
+        .sheet(isPresented: $showingSettings) {
+            SettingsView(speechRecognition: speechRecognition, onClose: { showingSettings.toggle() })
+        }
+    }
 }
 
-struct RecordingSign: View {
-  var body: some View {
-    Circle().fill(Color.red).frame(width: 48, height: 48)
-  }
+// MARK: - Subviews
+private extension TranslatorView {
+    struct LanguageView: View {
+        let title: String
+        let text: String
+
+        var body: some View {
+            VStack {
+                HeaderView(title: title)
+                TextView(text: text)
+                    .padding(.bottom)
+            }
+            .padding(.horizontal)
+        }
+    }
+
+    struct HeaderView: View {
+        let title: String
+
+        var body: some View {
+            HStack {
+                Spacer()
+                Text(title).font(.title2)
+                Spacer()
+                CopyButton(textToCopy: title)
+            }
+        }
+    }
+
+    struct CopyButton: View {
+        let textToCopy: String
+
+        var body: some View {
+            Button(action: {
+                UIPasteboard.general.string = textToCopy
+            }) {
+                Label("Copy", systemImage: "clipboard")
+            }
+        }
+    }
+
+    struct RecordingButton: View {
+        @ObservedObject var speechRecognition: SpeechRecognition
+
+        var body: some View {
+            if speechRecognition.isRecording {
+                HStack {
+                    Button(action: { speechRecognition.stopTranscribing() }) {
+                        Label("音声認識中", systemImage: "stop.fill")
+                            .labelStyle(.titleAndIcon)
+                    }
+                    RecordingSign()
+                }
+            } else {
+                Button(action: { speechRecognition.startTranscribing() }) {
+                    Label("音声認識を開始", systemImage: "text.bubble")
+                        .labelStyle(.titleAndIcon)
+                }
+            }
+        }
+    }
+
+    struct SettingsButton: View {
+        @Binding var showingSettings: Bool
+
+        var body: some View {
+            Button(action: { showingSettings = true }) {
+                Label("設定", systemImage: "slider.horizontal.3")
+                    .labelStyle(.titleAndIcon)
+            }
+        }
+    }
+
+    struct RecordingSign: View {
+        var body: some View {
+            Circle()
+                .fill(Color.red)
+                .frame(width: 48, height: 48)
+        }
+    }
 }
 
 #Preview {
-  TranslatorView()
+    TranslatorView()
 }
