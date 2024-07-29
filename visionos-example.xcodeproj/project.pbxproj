@@ -16,7 +16,7 @@
 		E3713A922C4CDE0C005BB33D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3713A912C4CDE0C005BB33D /* Assets.xcassets */; };
 		E3713A952C4CDE0C005BB33D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3713A942C4CDE0C005BB33D /* Preview Assets.xcassets */; };
 		E3713AA02C4CDE0C005BB33D /* visionos_exampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713A9F2C4CDE0C005BB33D /* visionos_exampleTests.swift */; };
-		E3713AAA2C4CDE68005BB33D /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713AA92C4CDE68005BB33D /* TestView.swift */; };
+		E3713AAA2C4CDE68005BB33D /* TranslatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713AA92C4CDE68005BB33D /* TranslatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +42,7 @@
 		E3713A962C4CDE0C005BB33D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3713A9B2C4CDE0C005BB33D /* visionos-exampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "visionos-exampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3713A9F2C4CDE0C005BB33D /* visionos_exampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = visionos_exampleTests.swift; sourceTree = "<group>"; };
-		E3713AA92C4CDE68005BB33D /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		E3713AA92C4CDE68005BB33D /* TranslatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 			children = (
 				E3713A8D2C4CDE0A005BB33D /* ContentView.swift */,
 				E3713A8F2C4CDE0A005BB33D /* ImmersiveView.swift */,
-				E3713AA92C4CDE68005BB33D /* TestView.swift */,
+				E3713AA92C4CDE68005BB33D /* TranslatorView.swift */,
 				E31B22CD2C51D37100DDF8CF /* TextView.swift */,
 			);
 			path = Views;
@@ -245,7 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3713AAA2C4CDE68005BB33D /* TestView.swift in Sources */,
+				E3713AAA2C4CDE68005BB33D /* TranslatorView.swift in Sources */,
 				E3301B012C51FCCF00522BDA /* SpeechRecognition.swift in Sources */,
 				E3713A8E2C4CDE0A005BB33D /* ContentView.swift in Sources */,
 				E3713A8C2C4CDE0A005BB33D /* visionos_exampleApp.swift in Sources */,

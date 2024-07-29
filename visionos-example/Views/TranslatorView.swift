@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TestView: View {
+struct TranslatorView: View {
   private var speechRecognition = SpeechRecognition()
   @State private var showingSheet = false
 
@@ -102,5 +102,5 @@ struct RecordingSign: View {
 }
 
 #Preview {
-  TestView()
+  TranslatorView()
 }

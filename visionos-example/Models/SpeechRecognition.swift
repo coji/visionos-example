@@ -29,7 +29,7 @@ class SpeechRecognition: ObservableObject {
   }
 
   @MainActor var isRecording: Bool = false
-  @MainActor var isOnDevice: Bool = true
+  @MainActor var isOnDevice: Bool = false
   @MainActor private(set) var transcript: String = ""
 
   private var audioEngine: AVAudioEngine?

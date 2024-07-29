@@ -9,16 +9,15 @@ import SwiftUI
 
 struct TextView: View {
   let text: String
-
+  
   var body: some View {
     ScrollView {
-      VStack {
-        Text(text)
-          .lineLimit(nil)
-          .textSelection(.enabled)
-          .font(.system(size: 48))
-      }
-      .frame(maxWidth: .infinity, maxHeight: .infinity)
+      Text(text)
+        .lineLimit(nil)
+        .textSelection(.enabled)
+        .font(.system(size: 48))
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     .clipShape(RoundedRectangle(cornerRadius: 10))
     .background(Color.black)
