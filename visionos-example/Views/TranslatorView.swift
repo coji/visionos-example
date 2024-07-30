@@ -8,11 +8,11 @@ struct TranslatorView: View {
         NavigationStack {
             HStack {
                 LanguageView(title: "English", text: speechRecognition.transcript)
-                LanguageView(title: "Japanese", text: "" /*speechRecognition.translated*/)
+                LanguageView(title: "Japanese", text: speechRecognition.translated)
             }
             .frame(maxWidth: .infinity)
             .padding()
-            .navigationTitle("Vision Translator")
+            .navigationTitle("Speech Translator")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack {
@@ -36,24 +36,16 @@ private extension TranslatorView {
 
         var body: some View {
             VStack {
-                HeaderView(title: title)
-                TextView(text: text)
+              HStack {
+                  Spacer()
+                  Text(title).font(.title2)
+                  Spacer()
+                  CopyButton(textToCopy: text)
+              }
+              TextView(text: text)
                     .padding(.bottom)
             }
             .padding(.horizontal)
-        }
-    }
-
-    struct HeaderView: View {
-        let title: String
-
-        var body: some View {
-            HStack {
-                Spacer()
-                Text(title).font(.title2)
-                Spacer()
-                CopyButton(textToCopy: title)
-            }
         }
     }
 

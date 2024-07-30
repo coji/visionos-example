@@ -9,6 +9,7 @@ import AVFoundation
 import Foundation
 import Speech
 import SwiftUI
+import OpenAI
 
 @Observable
 class SpeechRecognition: ObservableObject {
@@ -31,6 +32,7 @@ class SpeechRecognition: ObservableObject {
   @MainActor var isRecording: Bool = false
   @MainActor var isOnDevice: Bool = false
   @MainActor private(set) var transcript: String = ""
+  @MainActor private(set) var translated: String = ""
 
   private var audioEngine: AVAudioEngine?
   private var request: SFSpeechAudioBufferRecognitionRequest?
@@ -131,8 +133,14 @@ class SpeechRecognition: ObservableObject {
       audioEngine.inputNode.removeTap(onBus: 0)
     }
 
-    if let result {
-      transcribe(result.bestTranscription.formattedString)
+    if let result, !receivedFinalResult {
+      let text = result.bestTranscription.formattedString
+      transcribe(text)
+      if text != "" {
+        Task {
+          await fetchOpenAIResponse(text)
+        }
+      }
     }
   }
 
@@ -152,6 +160,38 @@ class SpeechRecognition: ObservableObject {
     Task { @MainActor [errorMessage] in
       transcript = "<< \(errorMessage) >>"
     }
+  }
+
+  private func fetchOpenAIResponse(_ text: String) async {
+    let openAI = OpenAI(apiToken: ApiKeyService.getApiKey() ?? "")
+    guard let message = ChatQuery.ChatCompletionMessageParam(role: .user, content: "あなたは優秀な翻訳者です。以下の英文を日本語に翻訳してください。翻訳文だけでokです。\n\n\(text)") else { return }
+    let query = ChatQuery(messages: [message], model: .gpt4_o_mini)
+
+    do {
+      let result = try await openAI.chats(query: query)
+      if let firstChoice = result.choices.first {
+        switch firstChoice.message {
+        case .assistant(let assistantMessage):
+          Task { @MainActor [assistantMessage] in
+            translated = assistantMessage.content ?? "No response"
+            log(translated)
+          }
+        default:
+          break
+        }
+      }
+    } catch {
+      await MainActor.run {
+        translated = "エラー: \(error.localizedDescription)"
+      }
+    }
+  }
+
+  func log(_ message: String) {
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+      let dateString = dateFormatter.string(from: Date())
+      print("[\(dateString)] \(message)")
   }
 }
 
