@@ -44,6 +44,7 @@ private extension TranslatorView {
               }
               TextView(text: text)
                     .padding(.bottom)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
             }
             .padding(.horizontal)
         }
@@ -58,6 +59,7 @@ private extension TranslatorView {
             }) {
                 Label("Copy", systemImage: "clipboard")
             }
+            .controlSize(.mini)
         }
     }
 

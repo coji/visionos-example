@@ -19,7 +19,6 @@ struct TextView: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-    .clipShape(RoundedRectangle(cornerRadius: 10))
     .background(Color.black)
   }
 }
